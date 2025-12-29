@@ -3,3 +3,8 @@ struct Point3D {
     double y;
     double z;
 };
+
+struct Point2D {
+    double x;
+    double y;
+};

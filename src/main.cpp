@@ -1,4 +1,6 @@
 #include "mesh_data.h"
+#include <glad/glad.h>
+#include <GLFW/glfw3.h>
 #include <iostream>
 
 MeshData CreateTriangle() {

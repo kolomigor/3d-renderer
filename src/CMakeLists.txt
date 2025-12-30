@@ -11,4 +11,7 @@ target_include_directories(renderer PRIVATE
 
 # GLFW
 find_package(glfw3 REQUIRED)
-target_link_libraries(renderer PRIVATE glfw)
+target_link_libraries(renderer PRIVATE
+    glfw
+    "-framework OpenGL"
+)

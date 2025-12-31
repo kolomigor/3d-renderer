@@ -55,7 +55,7 @@ int main() {
     // position attribute
     glVertexAttribPointer(0, // location = 0
                           3, // vec3
-                          GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void *)0);
+                          GL_FLOAT, GL_FALSE, sizeof(Vector3D), nullptr);
     glEnableVertexAttribArray(0);
 
     glBindBuffer(GL_ARRAY_BUFFER, 0);
@@ -108,6 +108,10 @@ void main()
 
         glfwSwapBuffers(window);
     }
+
+    glDeleteVertexArrays(1, &VAO);
+    glDeleteBuffers(1, &VBO);
+    glDeleteProgram(shaderProgram);
     glfwDestroyWindow(window);
     glfwTerminate();
     return 0;

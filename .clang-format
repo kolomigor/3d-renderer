@@ -3,3 +3,5 @@ IndentWidth: 4
 TabWidth: 4
 UseTab: ForIndentation
 AccessModifierOffset: -4
+ReferenceAlignment: Left
+AllowShortFunctionsOnASingleLine: None

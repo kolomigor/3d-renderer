@@ -2,7 +2,6 @@
 #include "lights.h"
 #include "picture.h"
 #include "renderer.h"
-#include "screen.h"
 #include "world.h"
 
 class Application {
@@ -16,5 +15,4 @@ private:
 	Lights lights_;
 	Renderer renderer_;
 	Picture picture_;
-	Screen screen_;
 };

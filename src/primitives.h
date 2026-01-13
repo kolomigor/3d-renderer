@@ -1,17 +1,11 @@
-#include <vector>
-
-struct Vector3D {
-    float x;
-    float y;
-    float z;
-};
+#include "glm.h"
 
 struct Vertex {
-    Vector3D position;
+	glm::vec3 position;
 };
 
 struct Triangle {
-    Vertex v0;
-    Vertex v1;
-    Vertex v2;
+	Vertex v0;
+	Vertex v1;
+	Vertex v2;
 };

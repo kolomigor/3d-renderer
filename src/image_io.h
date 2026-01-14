@@ -1,7 +1,5 @@
 #pragma once
-
+#include "picture.h"
 #include <string>
-
-class Picture;
 
 bool SavePPM(const Picture& picture, const std::string& filename);

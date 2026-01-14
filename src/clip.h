@@ -3,7 +3,11 @@
 #include <glm/glm.hpp>
 #include <vector>
 
-using ClipTriangle = std::array<glm::vec4, 3>;
+struct ClipVertex {
+	glm::vec4 position;
+};
 
-std::vector<ClipTriangle> ClipTriangleNear(const glm::vec4& c0, const glm::vec4& c1,
-                                           const glm::vec4& c2);
+using ClipTriangle = std::array<ClipVertex, 3>;
+
+std::vector<ClipTriangle> ClipTriangleNear(const ClipVertex& c0, const ClipVertex& c1,
+                                           const ClipVertex& c2);

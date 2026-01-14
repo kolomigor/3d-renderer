@@ -18,12 +18,9 @@ bool SavePPM(const Picture& picture, const std::string& filename) {
 	for (int y = 0; y < height; ++y) {
 		for (int x = 0; x < width; ++x) {
 			const glm::vec3& c = buffer[y * width + x];
-			unsigned char r = static_cast<unsigned char>(
-			    std::clamp(c.r, 0.0f, 1.0f) * 255.0f);
-			unsigned char g = static_cast<unsigned char>(
-			    std::clamp(c.g, 0.0f, 1.0f) * 255.0f);
-			unsigned char b = static_cast<unsigned char>(
-			    std::clamp(c.b, 0.0f, 1.0f) * 255.0f);
+			unsigned char r = static_cast<unsigned char>(std::clamp(c.r, 0.0f, 1.0f) * 255.0f);
+			unsigned char g = static_cast<unsigned char>(std::clamp(c.g, 0.0f, 1.0f) * 255.0f);
+			unsigned char b = static_cast<unsigned char>(std::clamp(c.b, 0.0f, 1.0f) * 255.0f);
 			out.write(reinterpret_cast<char *>(&r), 1);
 			out.write(reinterpret_cast<char *>(&g), 1);
 			out.write(reinterpret_cast<char *>(&b), 1);

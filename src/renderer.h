@@ -13,13 +13,9 @@ private:
 		float y;
 		float depth;
 	};
-
-	ScreenVertex ProjectVertex(const glm::vec3& pos, const glm::mat4& vp,
-	                           int width, int height) const;
-
-	void RasterizeTriangle(const ScreenVertex& a, const ScreenVertex& b,
-	                       const ScreenVertex& c, Picture& picture) const;
-
-	static float Edge(const glm::vec2& a, const glm::vec2& b,
-	                  const glm::vec2& p);
+	ScreenVertex ProjectVertex(const glm::vec3& pos, const glm::mat4& vp, int width,
+	                           int height) const;
+	void RasterizeTriangle(const ScreenVertex& a, const ScreenVertex& b, const ScreenVertex& c,
+	                       Picture& picture) const;
+	static float Edge(const glm::vec2& a, const glm::vec2& b, const glm::vec2& p);
 };

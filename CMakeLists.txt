@@ -26,6 +26,7 @@ add_executable(renderer
     src/picture.cpp
     src/renderer.cpp
     src/image_io.cpp
+    src/clip.cpp
 )
 
 target_link_libraries(renderer PRIVATE glm::glm)

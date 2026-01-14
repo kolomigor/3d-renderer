@@ -2,9 +2,7 @@
 #include <algorithm>
 #include <limits>
 
-Picture::Picture(int width, int height)
-    : width_(width), height_(height), color_(width * height),
-      depth_(width * height) {
+Picture::Picture(int w, int h) : width_(w), height_(h), color_(w * h), depth_(w * h) {
 	Clear({0, 0, 0});
 	ClearDepth();
 }
@@ -14,8 +12,7 @@ void Picture::Clear(const glm::vec3& color) {
 }
 
 void Picture::ClearDepth() {
-	std::fill(depth_.begin(), depth_.end(),
-	          std::numeric_limits<float>::infinity());
+	std::fill(depth_.begin(), depth_.end(), std::numeric_limits<float>::infinity());
 }
 
 void Picture::SetPixel(int x, int y, const glm::vec3& color, float depth) {

@@ -27,6 +27,7 @@ add_executable(renderer
     src/renderer.cpp
     src/image_io.cpp
     src/clip.cpp
+    src/rasterizer.cpp
 )
 
 target_link_libraries(renderer PRIVATE glm::glm)

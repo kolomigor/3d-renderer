@@ -1,3 +1,4 @@
+#pragma once
 #include "camera.h"
 #include "lights.h"
 #include "picture.h"

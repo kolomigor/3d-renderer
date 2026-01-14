@@ -22,6 +22,10 @@ add_executable(renderer
     src/main.cpp
     src/application.cpp
     src/world.cpp
+    src/camera.cpp
+    src/picture.cpp
+    src/renderer.cpp
+    src/image_io.cpp
 )
 
 target_link_libraries(renderer PRIVATE glm::glm)

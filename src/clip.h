@@ -1,6 +1,6 @@
 #pragma once
+#include "glm.h"
 #include <array>
-#include <glm/glm.hpp>
 #include <vector>
 
 struct ClipVertex {

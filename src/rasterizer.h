@@ -6,6 +6,7 @@ struct ScreenVertex {
 	float x;
 	float y;
 	float depth;
+	glm::vec3 color;
 };
 
 class Rasterizer {

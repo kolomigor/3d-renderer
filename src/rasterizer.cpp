@@ -30,7 +30,8 @@ void Rasterizer::RasterizeTriangle(const ScreenVertex& a, const ScreenVertex& b,
 				const float beta = w1 / area;
 				const float gamma = w2 / area;
 				const float depth = alpha * a.depth + beta * b.depth + gamma * c.depth;
-				picture.SetPixel(x, y, glm::vec3(1.0f, 1.0f, 1.0f), depth);
+				glm::vec3 color = alpha * a.color + beta * b.color + gamma * c.color;
+				picture.SetPixel(x, y, color, depth);
 			}
 		}
 	}

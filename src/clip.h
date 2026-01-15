@@ -5,6 +5,7 @@
 
 struct ClipVertex {
 	glm::vec4 position;
+    glm::vec3 color;
 };
 
 using ClipTriangle = std::array<ClipVertex, 3>;

@@ -16,6 +16,7 @@ static ScreenVertex ProjectVertex(const ClipVertex& clip, int width, int height)
 	out.x = (ndc.x * 0.5f + 0.5f) * static_cast<float>(width);
 	out.y = (1.0f - (ndc.y * 0.5f + 0.5f)) * static_cast<float>(height);
 	out.depth = ndc.z;
+	out.color = clip.color;
 	return out;
 }
 
@@ -26,9 +27,9 @@ void Renderer::Render(const World& world, const Camera& camera, Picture& picture
 	const int w = picture.Width();
 	const int h = picture.Height();
 	for (const Triangle& t : world.GetTriangles()) {
-		ClipVertex v0 = {vp * glm::vec4(t.v0.position, 1.0f)};
-		ClipVertex v1 = {vp * glm::vec4(t.v1.position, 1.0f)};
-		ClipVertex v2 = {vp * glm::vec4(t.v2.position, 1.0f)};
+		ClipVertex v0 = {vp * glm::vec4(t.v0.position, 1.0f), t.v0.color};
+		ClipVertex v1 = {vp * glm::vec4(t.v1.position, 1.0f), t.v1.color};
+		ClipVertex v2 = {vp * glm::vec4(t.v2.position, 1.0f), t.v2.color};
 		auto clipped_triangles = ClipTriangleNear(v0, v1, v2);
 		for (const ClipTriangle& tr : clipped_triangles) {
 			ScreenVertex c0 = ProjectVertex(tr[0], w, h);

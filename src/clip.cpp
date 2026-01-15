@@ -10,6 +10,7 @@ static ClipVertex IntersectNear(const ClipVertex& a, const ClipVertex& b) {
 	float t = da / (da - db);
 	ClipVertex out;
 	out.position = a.position + t * (b.position - a.position);
+	out.color = a.color + t * (b.color - a.color);
 	return out;
 }
 

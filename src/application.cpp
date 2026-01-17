@@ -3,8 +3,10 @@
 #include "primitives.h"
 
 Application::Application() : camera_(60.0f, 800.0f / 600.0f, 0.1f, 100.0f), picture_(800, 600) {
-	camera_.SetPosition({0, 0, 0});
-	camera_.LookAt({0, 0, -1});
+	// camera_.SetPosition({0, 0, 0});
+	// camera_.LookAt({0, 0, -1});
+	camera_.SetPosition({2.5f, 2.0f, 2.0f});
+	camera_.LookAt({0, 0, -6});
 }
 
 void Application::Run() {
@@ -38,49 +40,30 @@ void Application::Run() {
 	glm::vec3 red(1, 0, 0), green(0, 1, 0), blue(0, 0, 1);
 	glm::vec3 yellow(1, 1, 0), cyan(0, 1, 1), magenta(1, 0, 1);
 
-	// FRONT (-Z)
-	addTri(v000, v100, v110, red, red, red);
-	addTri(v000, v110, v010, red, red, red);
+	// FRONT (+Z)  ближняя к камере
+	addTri(v001, v101, v111, green, green, green);
+	addTri(v001, v111, v011, green, green, green);
 
-	// BACK (+Z)
-	addTri(v101, v001, v011, green, green, green);
-	addTri(v101, v011, v111, green, green, green);
+	// BACK (-Z)
+	addTri(v000, v010, v110, red, red, red);
+	addTri(v000, v110, v100, red, red, red);
 
 	// LEFT (-X)
-	addTri(v001, v000, v010, blue, blue, blue);
-	addTri(v001, v010, v011, blue, blue, blue);
+	addTri(v000, v001, v011, blue, blue, blue);
+	addTri(v000, v011, v010, blue, blue, blue);
 
 	// RIGHT (+X)
-	addTri(v100, v101, v111, yellow, yellow, yellow);
-	addTri(v100, v111, v110, yellow, yellow, yellow);
+	addTri(v100, v110, v111, yellow, yellow, yellow);
+	addTri(v100, v111, v101, yellow, yellow, yellow);
 
 	// TOP (+Y)
-	addTri(v010, v110, v111, cyan, cyan, cyan);
-	addTri(v010, v111, v011, cyan, cyan, cyan);
+	addTri(v010, v011, v111, cyan, cyan, cyan);
+	addTri(v010, v111, v110, cyan, cyan, cyan);
 
 	// BOTTOM (-Y)
-	addTri(v001, v101, v100, magenta, magenta, magenta);
-	addTri(v001, v100, v000, magenta, magenta, magenta);
+	addTri(v000, v100, v101, magenta, magenta, magenta);
+	addTri(v000, v101, v001, magenta, magenta, magenta);
 
 	renderer_.Render(world_, camera_, picture_);
 	SavePPM(picture_, "output.ppm");
 }
-
-// void AddSquare(World& world, float x, float y) {
-// 	Triangle t1;
-// 	t1.v0.position = glm::vec3(x, y, -10);
-// 	t1.v1.position = glm::vec3(x + 1, y, -10);
-// 	t1.v2.position = glm::vec3(x, y + 1, -10);
-// 	t1.v0.color = {1, 1, 1};
-// 	t1.v1.color = {1, 1, 1};
-// 	t1.v2.color = {1, 1, 1};
-// 	world.AddTriangle(t1);
-// 	Triangle t2;
-// 	t2.v0.position = glm::vec3(x + 1, y + 1, -10);
-// 	t2.v1.position = glm::vec3(x, y + 1, -10);
-// 	t2.v2.position = glm::vec3(x + 1, y, -10);
-// 	t2.v0.color = {1, 1, 1};
-// 	t2.v1.color = {1, 1, 1};
-// 	t2.v2.color = {1, 1, 1};
-// 	world.AddTriangle(t2);
-// }
